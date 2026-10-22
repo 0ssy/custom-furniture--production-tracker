@@ -1,3 +1,30 @@
+# Custom Furniture Production Tracker
+
+A Laravel web application for managing custom furniture customers, orders,
+production progress, payments, balances, and deliveries.
+
+## Requirements
+
+- PHP and Composer
+- A supported database (for example, MySQL or SQLite)
+- Node.js and npm, if the project uses frontend assets
+
+## Setup
+
+1. Clone the repository and enter the project folder.
+2. Install PHP dependencies:
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
