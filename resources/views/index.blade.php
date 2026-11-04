@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Furniture Orders</title>
     <style>
-        body  { font-family: Arial, sans-serif; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th    { background: #eee; }
+        body    { font-family: Arial, sans-serif; margin: 0; background: #f4f5f7; color: #222; }
+        header  { background: #5a3e2b; color: #fff; padding: 16px 24px; }
+        header h1 { margin: 0; font-size: 22px; }
+        main    { padding: 24px; max-width: 1100px; margin: 0 auto; }
+
+        .cards  { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .card   { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+        .card p { margin: 0; color: #666; font-size: 14px; }
+        .card h2 { margin: 8px 0 0; font-size: 28px; }
+
+        .panel  { background: #fff; border-radius: 8px; padding: 16px; margin-top: 24px; box-shadow: 0 1px 3px rgba(0,0,0,.1); overflow-x: auto; }
+        .panel-top { display: flex; justify-content: space-between; align-items: center; }
+        .btn    { background: #5a3e2b; color: #fff; padding: 8px 14px; border-radius: 6px; text-decoration: none; }
+
+        table   { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        th, td  { padding: 10px; text-align: left; border-bottom: 1px solid #eee; }
+        th      { background: #fafafa; font-size: 13px; color: #555; }
+
+        .stage  { padding: 3px 10px; border-radius: 12px; font-size: 12px; }
+        .cutting    { background: #fff3cd; }
+        .assembly   { background: #d1ecf1; }
+        .finishing  { background: #e2d9f3; }
+        .ready      { background: #d4edda; }
     </style>
 </head>
 <body>
 
-    <h2>Furniture Orders</h2>
+    <header>
+        <h1>Furniture Production Dashboard</h1>
+    </header>
 
-    {{-- Show a message after creating / editing / deleting an order --}}
-    @if (session('success'))
-        <p style="color: green;">{{ session('success') }}</p>
-    @endif
+    <main>
+        <div class="cards">
+            <div class="card"><p>Total Orders</p><h2>4</h2></div>
+            <div class="card"><p>In Production</p><h2>3</h2></div>
+            <div class="card"><p>Ready for Delivery</p><h2>1</h2></div>
+            <div class="card"><p>Total Value (KES)</p><h2>153,500</h2></div>
+        </div>
 
-    <a href="{{ route('orders.create') }}">+ New Order</a>
+        <div class="panel">
+            <div class="panel-top">
+                <h3>Recent Orders</h3>
+                <a href="#" class="btn">+ New Order</a>
+            </div>
 
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Customer</th>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Deadline</th>
-            <th>Stage</th>
-            <th>Actions</th>
-        </tr>
-
-        {{-- Loop through every order the controller sent to this page --}}
-        @forelse ($orders as $order)
-            <tr>
-                <td>{{ $order->id }}</td>
-                <td>{{ $order->customer->name ?? 'Unknown' }}</td>
-                <td>{{ $order->furniture_item }}</td>
-                <td>{{ number_format($order->total_price, 2) }}</td>
-                <td>{{ $order->deadline }}</td>
-                <td>{{ $order->production_stage }}</td>
-                <td>
-                    <a href="{{ route('orders.show', $order) }}">View</a>
-                    <a href="{{ route('orders.edit', $order) }}">Edit</a>
-
-                    {{-- Deleting needs a small form (links can't send DELETE requests) --}}
-                    <form action="{{ route('orders.destroy', $order) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Delete this order?')">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        @empty
-            {{-- This shows only when there are no orders at all --}}
-            <tr>
-                <td colspan="7">No orders yet.</td>
-            </tr>
-        @endforelse
-    </table>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Item</th>
+                    <th>Price (KES)</th>
+                    <th>Deadline</th>
+                    <th>Stage</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Jane Wanjiru</td>
+                    <td>Oak dining table</td>
+                    <td>45,000</td>
+                    <td>20 Nov 2026</td>
+                    <td><span class="stage cutting">Cutting</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Peter Otieno</td>
+                    <td>3-seater sofa</td>
+                    <td>68,500</td>
+                    <td>1 Dec 2026</td>
+                    <td><span class="stage assembly">Assembly</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Mary Achieng</td>
+                    <td>Bookshelf</td>
+                    <td>12,000</td>
+                    <td>15 Nov 2026</td>
+                    <td><span class="stage finishing">Finishing</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>David Kamau</td>
+                    <td>King-size bed frame</td>
+                    <td>28,000</td>
+                    <td>8 Nov 2026</td>
+                    <td><span class="stage ready">Ready</span></td>
+                </tr>
+            </table>
+        </div>
+    </main>
 
 </body>
 </html>
