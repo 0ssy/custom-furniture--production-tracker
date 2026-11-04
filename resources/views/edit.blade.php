@@ -13,18 +13,19 @@
 
 		<p>
 			<label for="customer_name">Customer name</label>
-			<input type="text" id="customer_name" name="customer_name" >
+			<input type="text" id="customer_name" name="customer_name" value="<?php echo old('customer_name', $order->customer_name ?? ''); ?>">
 		</p>
 		<p>
 			<label for="furniture_item">Furniture item</label>
-			<input type="text" id="furniture_item" name="furniture_item" >
+			<input type="text" id="furniture_item" name="furniture_item" value="<?php echo old('furniture_item', $order->furniture_item ?? ''); ?>">
+		</p>
 		<p>
 			<label for="quantity">Quantity</label>
-			<input type="number" id="quantity" name="quantity" min="1" >
+			<input type="number" id="quantity" name="quantity" min="1" value="<?php echo old('quantity', $order->quantity ?? ''); ?>">
 		</p>
 		<p>
 			<label for="due_date">Due date</label>
-			<input type="date" id="due_date" name="due_date" >
+			<input type="date" id="due_date" name="due_date" value="<?php echo old('due_date', isset($order->due_date) ? date('Y-m-d', strtotime($order->due_date)) : ''); ?>">
 		</p>
 		<p>
 			<label for="status">Status</label>
@@ -36,7 +37,7 @@
 		</p>
 		<p>
 			<label for="notes">Notes</label>
-			<textarea id="notes" name="notes" rows="4"></textarea>
+			<textarea id="notes" name="notes" rows="4"><?php echo old('notes', $order->notes ?? ''); ?></textarea>
 		</p>
 
 		<button type="submit">Save changes</button>

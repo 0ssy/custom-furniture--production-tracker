@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>      
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Custom Furniture Production Tracker</title>
 </head>
 <body>
+	<?php
+		$currentYear = date('Y');
+	?>
+
 	<header>
 		<h1>Custom Furniture Production Tracker</h1>
 	</header>
@@ -16,7 +20,7 @@
 	</main>
 
 	<footer>
-		<p>&copy; <?php echo date('Y'); ?> Custom Furniture Production Tracker</p>
+		<p>&copy; <?php echo $currentYear; ?> Custom Furniture Production Tracker</p>
 	</footer>
 </body>
 </html>
