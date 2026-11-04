@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Furniture Orders</title>
     <style>
         body    { font-family: Arial, sans-serif; margin: 0; background: #f4f5f7; color: #222; }
-        header  { background: #5a3e2b; color: #ffff; padding: 16px 24px; }
+        header  { background: #5a3e2b; color: #fff; padding: 16px 24px; }
         header h1 { margin: 0; font-size: 22px; }
         main    { padding: 24px; max-width: 1100px; margin: 0 auto; }
 
@@ -22,6 +22,7 @@
         table   { width: 100%; border-collapse: collapse; margin-top: 12px; }
         th, td  { padding: 10px; text-align: left; border-bottom: 1px solid #eee; }
         th      { background: #fafafa; font-size: 13px; color: #555; }
+        tbody tr:hover { background: #fcfaf7; }
 
         .stage  { padding: 3px 10px; border-radius: 12px; font-size: 12px; }
         .cutting    { background: #fff3cd; }
@@ -51,6 +52,7 @@
             </div>
 
             <table>
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Customer</th>
@@ -59,6 +61,8 @@
                     <th>Deadline</th>
                     <th>Stage</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>1</td>
                     <td>Jane Wanjiru</td>
@@ -91,6 +95,7 @@
                     <td>8 Nov 2026</td>
                     <td><span class="stage ready">Ready</span></td>
                 </tr>
+                </tbody>
             </table>
         </div>
     </main>
