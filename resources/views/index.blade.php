@@ -6,7 +6,7 @@
     <title>Furniture Orders</title>
     <style>
         body    { font-family: Arial, sans-serif; margin: 0; background: #f4f5f7; color: #222; }
-        header  { background: #5a3e2b; color: #fff; padding: 16px 24px; }
+        header  { background: #5a3e2b; color: #ffff; padding: 16px 24px; }
         header h1 { margin: 0; font-size: 22px; }
         main    { padding: 24px; max-width: 1100px; margin: 0 auto; }
 
