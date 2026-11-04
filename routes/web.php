@@ -14,4 +14,4 @@ Route::get('/login', function () {
 
 Route::get('/orders', function () {
     return view('index');
-});
+})->name('orders.index');
