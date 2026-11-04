@@ -1,5 +1,5 @@
 <?php
-	$item = $productionOrder ?? $order ?? $production;
+	
 
 	$details = [
 		'Customer' => get($item, 'customer_name', get($item, 'customer.name', "")),
@@ -35,6 +35,7 @@
 			if($item && get($item, 'id'))
 				<a class="button primary" href="{{ url('/production-orders/' . get($item, 'id') . '/edit') }}">Edit order</a>
 			
+			
 		</div>
 	</header>
 
@@ -46,11 +47,7 @@
 		<div class="grid">
 			foreach($details as $label => $value)
 				if($label === 'Price' && $value !== null)
-					 $value = number_format((float) $value, 2); 
-				
-				<div>
-					<span class="label">{{ $label }}</span>
-					<span class="value">{{ $value ?? '—' }}</span>
+					<?php $value = number_format((float) $value, 2); ?>
 				</div>
 			
 		</div>
