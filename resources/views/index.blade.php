@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>      
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Custom Furniture Production Tracker</title>
@@ -16,7 +16,7 @@
 	</main>
 
 	<footer>
-		<p>&copy; {{ date('Y') }} Custom Furniture Production Tracker</p>
+		<p>&copy; <?php echo date('Y'); ?> Custom Furniture Production Tracker</p>
 	</footer>
 </body>
 </html>
