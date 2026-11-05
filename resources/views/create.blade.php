@@ -15,13 +15,15 @@
 			<h2>Furniture Details</h2>
 			<form method="POST">
 				
+				
+				
 				<p>
 					<label for="name">Furniture name</label><br>
-					<input type="text" id="name" name="name" required>
+					<input type="text" id="name" name="name" >
 				</p>
 				<p>
 					<label for="quantity">Quantity</label><br>
-					<input type="number" id="quantity" name="quantity" min="1" required>
+					<input type="number" id="quantity" name="quantity" min="1" value="1">
 				</p>
 				<button type="submit">Save</button>
 			</form>

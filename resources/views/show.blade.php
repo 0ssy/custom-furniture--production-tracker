@@ -44,10 +44,10 @@
 		<p><span class="label">Current status</span>
 			<span class="status {{ $statusClass }}">{{ $status }}</span>
 		</p>
-		<div class="grid">
+		<div class="grid"><?php
 			foreach($details as $label => $value)
 				if($label === 'Price' && $value !== null)
-					<?php $value = number_format((float) $value, 2); ?>
+					 $value = number_format((float) $value, 2); ?>
 				</div>
 			
 		</div>
