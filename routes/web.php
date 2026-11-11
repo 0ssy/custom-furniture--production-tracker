@@ -38,3 +38,12 @@ Route::get('/profile', function () {
 Route::get('/orders/create', function () {
     return view('orders.create');
 });
+Route::get('/customers/{id}/edit', function ($id) {
+    return view('customers.edit');
+});
+Route::get('/payments/create', function () {
+    return view('payments.create');
+});
+Route::get('/deliveries/create', function () {
+    return view('deliveries.create');
+});
